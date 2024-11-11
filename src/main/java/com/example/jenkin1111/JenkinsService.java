@@ -1,5 +1,8 @@
 package com.example.jenkin1111;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class JenkinsService {
 
     public int  hap(int n){
