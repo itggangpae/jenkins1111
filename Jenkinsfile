@@ -1,6 +1,19 @@
 pipeline{
     agent any
     stages{
+
+        stage("Set Variables"){
+            steps{
+                sh "echo SetVariables"
+
+                script{
+                    DOCKER_HUB_URL = 'registry.hub.docker.com'
+                    DOCKER_HUB_FULL_URL = 'https://' + DOCKER_HUB_URL
+                    DOCKER_HUB_CREDENTIAL_ID = 'docker-hub'
+                }
+            }
+        }
+
         stage("Permission"){
             steps{
                 sh "chmod +x ./gradlew"
@@ -45,12 +58,6 @@ pipeline{
          stage("Gradle Build"){
             steps{
                 sh "./gradlew clean build"
-            }
-         }
-
-         stage("Docker Image Build"){
-            steps{
-                sh "docker build -t jenkins1111 ."
             }
          }
 
