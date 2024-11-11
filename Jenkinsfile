@@ -1,12 +1,6 @@
 pipeline{
     agent any
     stages{
-        stage("Checkout"){
-            steps{
-                sh "echo checkcout"
-            }
-        }
-
         stage("Permission"){
             steps{
                 sh "chmod +x ./gradlew"
@@ -16,6 +10,12 @@ pipeline{
         stage("Compile"){
             steps{
                 sh "./gradlew compileJava"
+            }
+        }
+
+        stage("Unit Test"){
+            steps{
+                sh "./gradlew test"
             }
         }
     }
