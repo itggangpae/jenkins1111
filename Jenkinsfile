@@ -6,5 +6,11 @@ pipeline{
                 sh "echo checkcout"
             }
         }
+
+        stage("Compile"){
+            steps{
+                sh "./gradlew compileJava"
+            }
+        }
     }
 }
