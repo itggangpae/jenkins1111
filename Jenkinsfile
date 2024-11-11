@@ -48,5 +48,11 @@ pipeline{
             }
          }
 
+         stage("Docker Image Build"){
+            steps{
+                sh "docker build -t jenkins1111 ."
+            }
+         }
+
     }
 }
