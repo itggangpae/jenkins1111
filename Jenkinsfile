@@ -4,7 +4,7 @@ pipeline{
 
         stage("Set Variables"){
             steps{
-                sh "echo SetVariables"
+                echo "SetVariables"
 
                 script{
                     DOCKER_HUB_URL = 'registry.hub.docker.com'
